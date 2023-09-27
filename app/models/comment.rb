@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   def update_comments_counter
-    self.post.comments_counter = self.post.comments.count
-    self.post.save
+    post.comments_counter = post.comments.count
+    post.save
   end
 end
