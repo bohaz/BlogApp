@@ -15,6 +15,4 @@ class Post < ApplicationRecord
     author.posts_counter = author.posts.count
     author.save
   end
-
-  
 end
