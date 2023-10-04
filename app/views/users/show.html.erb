@@ -1,1 +1,33 @@
-<h1>Here is a single user</h1>
+<div class="user-profile">
+
+  <div class="user-info">
+    <div class="user-photo">
+      <img src="<%= @user.photo %>" alt="User photo">
+    </div>
+    <h1><%= @user.name %></h1>
+    <div class="number-posts">
+    <p>Number of posts: <%= @user.posts.count %></p>
+    </div>
+  </div>
+
+  <div class="user-bio">
+    <p><%= @user.bio %></p>
+  </div>
+
+  <div class="recent-posts">
+    <% @user.recent_posts.each do |post| %>
+      <div class="post">
+        <h3><%= link_to "Post ##{post.id}", user_post_path(@user, post) %></h3>
+        <p><%= post.text.truncate(100) %>... <a href="<%= user_post_path(@user, post) %>">Read more</a></p>
+        <div class="user-comment-like">
+        <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+        </div>
+      </div>
+    <% end %>
+    
+    <div class="see-all">
+  <%= link_to 'See all posts', user_posts_path(@user), class: 'button' %>
+</div>
+
+  </div>
+</div>
