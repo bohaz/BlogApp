@@ -1,15 +1,131 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  padding: 5%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+p {
+  color: #555;
+}
+
+.user-container img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  border: solid 1px blue;
+}
+
+.user-header img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  border: solid 1px black;
+}
+
+.post {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1%;
+}
+
+.post-stats {
+  font-size: 0.9em;
+  color: #888;
+  text-align: end;
+}
+
+/* User-container */
+.user-container {
+  padding: 1%;
+}
+
+.user-content {
+  display: flex;
+  align-items: center;
+  padding: 1%;
+}
+
+/* Single-post container */
+.single-post {
+  padding: 2%;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+}
+
+/* User posts container */
+.user-posts {
+  padding: 2%;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 1%;
+}
+
+.pagination {
+  text-align: center;
+}
+
+/* User profile container */
+.user-profile {
+  padding: 2%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 1%;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.see-all {
+  text-align: center;
+}
+
+.number-posts {
+  text-align: end;
+  width: 100%;
+}
+
+.user-comment-like {
+  width: 100%;
+  text-align: end;
+}
