@@ -30,7 +30,7 @@
 
   <h2 class="form-title">Add Comment:</h2>
 
-  <%= form_with(url: user_post_comments_path(@author, @post), method: :post, local: true) do |form| %>
+  <%= form_with(model: [ @post, @post.comments.build ], url: user_post_comments_path(@post.author, @post), local: true) do |form| %>
     <%= form.hidden_field :author_id, value: current_user.id %>
 
     <div>
@@ -47,7 +47,7 @@
 
 <h2 class="form-title">Create a New Post</h2>
 
-<%= form_with(model: [current_user, current_user.posts.build], local: true) do |form| %>
+<%= form_with(model: [@author, @new_post], local: true) do |form| %>
   <div>
     <%= form.label :title, "Title" %>
     <%= form.text_field :title %>
