@@ -7,24 +7,25 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @author = User.find(@post.author_id)
+    @new_post = current_user.posts.build
   end
-end
 
-def new
-  @post = current_user.posts.build
-end
-
-def create
-  @post = current_user.posts.build(post_params)
-  if @post.save
-    redirect_to user_posts_path(current_user), notice: 'Post was successfully created.'
-  else
-    render :new
+  def new
+    @post = Post.new
   end
-end
 
-private
+  def create
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      redirect_to user_posts_path(current_user), notice: 'Post was successfully created.'
+    else
+      render :new
+    end
+  end
 
-def post_params
-  params.require(:post).permit(:title, :text)
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
