@@ -5,6 +5,12 @@
     <div class="post-stats">
       <span>Comments: <%= @post.comments.count %></span>
       <span>Likes: <%= @post.likes.count %></span>
+      <div class="like-button">
+      <%= form_with(url: user_post_likes_path(@author, @post), method: :post, local: true) do |form| %>
+        <%= form.hidden_field :author_id, value: current_user.id %>
+        <%= form.submit "Like" %>
+      <% end %>
+      </div>
     </div>
   </div>
 
@@ -19,5 +25,22 @@
       </div>
     <% end %>
   </div>
+
+  <!-- New comment -->
+
+  <h2 class="form-title">Add Comment:</h2>
+
+  <%= form_with(model: [ @post, @post.comments.build ], url: user_post_comments_path(@post.author, @post), local: true) do |form| %>
+    <%= form.hidden_field :author_id, value: current_user.id %>
+
+    <div>
+      <%= form.label :text, "Comment" %>
+      <%= form.text_area :text %>
+    </div>
+
+    <div>
+      <%= form.submit "Add Comment" %>
+    </div>
+  <% end %>
 
 </div>
