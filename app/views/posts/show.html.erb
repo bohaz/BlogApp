@@ -43,24 +43,4 @@
     </div>
   <% end %>
 
-  <!-- New post -->
-
-<h2 class="form-title">Create a New Post</h2>
-
-<%= form_with(model: [@author, @new_post], local: true) do |form| %>
-  <div>
-    <%= form.label :title, "Title" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :text, "Text" %>
-    <%= form.text_area :text %>
-  </div>
-
-  <div>
-    <%= form.submit "Create Post" %>
-  </div>
-<% end %>
-
 </div>
