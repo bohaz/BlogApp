@@ -11,7 +11,7 @@
   <% @posts.each do |post| %>
     <div class="post">
 
-      <h2><%= post.title %></h2>
+      <h2><%= link_to post.title, user_post_path(@user, post) %></h2>
 
       <p><%= post.text %></p>
 

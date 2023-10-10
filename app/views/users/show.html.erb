@@ -17,7 +17,8 @@
   <div class="recent-posts">
     <% @user.recent_posts.each do |post| %>
       <div class="post">
-        <h3><%= link_to "Post ##{post.id}", user_post_path(@user, post) %></h3>
+      <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+
         <p><%= post.text.truncate(100) %>... <a href="<%= user_post_path(@user, post) %>">Read more</a></p>
         <div class="user-comment-like">
         <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>

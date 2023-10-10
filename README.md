@@ -140,6 +140,6 @@ I would like to thaks Microverse for giving me the oportunity to build and contr
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/bohaz/BlogApp/blob/creating-data-model/MIT.md) licensed.
+This project is [MIT](https://github.com/bohaz/BlogApp/blob/dev/MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
