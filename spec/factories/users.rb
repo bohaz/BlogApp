@@ -5,8 +5,8 @@ FactoryBot.define do
     photo { Faker::Avatar.image }
     posts_counter { 0 }
 
-    after(:create) do |user, evaluator|
-      create_list(:post, 3, author: user) 
+    after(:create) do |user, _evaluator|
+      create_list(:post, 3, author: user)
     end
   end
 end

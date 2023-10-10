@@ -2,14 +2,13 @@
 require 'rails_helper'
 
 RSpec.describe 'User Posts', type: :feature do
-  
   let!(:user) { create(:user) }
   let!(:posts) { create_list(:post, 5, author: user) }
   # Creando algunos comentarios y 'likes' para un post.
   let!(:post_with_comments_and_likes) do
-    post = create(:post, author: user, title: "Expected Post Title")
-    create_list(:comment, 3, post: post, author: user)
-    create_list(:like, 3, post: post, author: user)
+    post = create(:post, author: user, title: 'Expected Post Title')
+    create_list(:comment, 3, post:, author: user)
+    create_list(:like, 3, post:, author: user)
     post
   end
 
@@ -20,7 +19,7 @@ RSpec.describe 'User Posts', type: :feature do
       user.posts.each do |post|
         expect(page).to have_content(post.title)
       end
-    end    
+    end
 
     it 'displays the user profile picture' do
       expect(page).to have_selector("img[src$='#{user.photo}']")
@@ -85,7 +84,7 @@ RSpec.describe 'User Posts', type: :feature do
         expect(page).to have_content(comment.author.name)
       end
     end
-  
+
     it 'displays the comment each commentor left' do
       post_with_comments_and_likes.comments.each do |comment|
         expect(page).to have_content(comment.text)

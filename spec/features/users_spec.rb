@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :feature do
-  
   let!(:users) { create_list(:user, 5) }
 
   describe 'Users index page' do
@@ -73,5 +72,4 @@ RSpec.describe 'Users', type: :feature do
       expect(current_path).to eq(user_posts_path(user))
     end
   end
-
 end
