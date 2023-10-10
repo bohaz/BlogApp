@@ -5,8 +5,8 @@ RSpec.describe 'Posts Show', type: :feature do
   let!(:user) { create(:user) }
   let!(:post_with_comments_and_likes) do
     post = create(:post, author: user, title: 'Expected Post Title')
-    create_list(:comment, 3, post: post, author: user)
-    create_list(:like, 3, post: post, author: user)
+    create_list(:comment, 3, post:, author: user)
+    create_list(:like, 3, post:, author: user)
     post
   end
 

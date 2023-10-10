@@ -7,8 +7,8 @@ RSpec.describe 'Posts Index', type: :feature do
 
   let!(:post_with_comments_and_likes) do
     post = create(:post, author: user, title: 'Expected Post Title')
-    create_list(:comment, 3, post: post, author: user)
-    create_list(:like, 3, post: post, author: user)
+    create_list(:comment, 3, post:, author: user)
+    create_list(:like, 3, post:, author: user)
     post
   end
 
@@ -19,7 +19,7 @@ RSpec.describe 'Posts Index', type: :feature do
       user.posts.each do |post|
         expect(page).to have_content(post.title)
       end
-    end    
+    end
 
     it 'displays the user profile picture' do
       expect(page).to have_selector("img[src$='#{user.photo}']")
