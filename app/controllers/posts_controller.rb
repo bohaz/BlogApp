@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -7,11 +9,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @author = User.find(@post.author_id)
-    @new_post = current_user.posts.build
+    @new_post = current_user.posts.build if user_signed_in?
   end
 
   def new
-    @user = User.find(params[:user_id]) # Establece el usuario.
+    @user = User.find(params[:user_id]) 
     @post = @user.posts.build
   end
 
