@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id]) 
+    @user = User.find(params[:user_id])
     @post = @user.posts.build
   end
 
