@@ -101,7 +101,13 @@ p {
   padding: 1%;
 }
 
-.button {
+.signout-button-container {
+  text-align: center;
+}
+
+.button,
+.signout-button,
+.pagination button {
   display: inline-block;
   padding: 10px 20px;
   color: #fff;
@@ -148,13 +154,20 @@ form label {
 form input[type="text"],
 form textarea,
 form select {
-  width: 100%;
+  width: 90%;
   padding: 0.5em;
   border: 1px solid #d1d1d1;
   border-radius: 4px;
   margin-bottom: 1em;
   font-size: 1em;
   transition: border 0.2s;
+}
+
+.field textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 form input[type="text"]:focus,
@@ -182,6 +195,56 @@ form div {
   margin-bottom: 1em;
 }
 
+/* Login form */
+.login-title,
+.signup-title,
+.forgot-title,
+.resend-title,
 .form-title {
   text-align: center;
+}
+
+.login-form,
+.signup-form,
+.forgot-password-form,
+.resend-confirmation-form,
+.add-comment-form,
+.create-post-form {
+  max-width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5%;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-btn,
+.signup-btn,
+.reset-btn,
+.resend-btn,
+.submit-btn {
+  width: 100%;
+}
+
+/* shared links */
+.centered-links {
+  text-align: center;
+  padding: 20px;
+}
+
+.centered-links a,
+.centered-links button {
+  display: block;
+  margin: 5px 0;
 }
