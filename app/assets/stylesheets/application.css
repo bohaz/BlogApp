@@ -107,7 +107,8 @@ p {
 
 .button,
 .signout-button,
-.pagination button, .del-button {
+.pagination button,
+.del-button {
   display: inline-block;
   padding: 10px 20px;
   color: #fff;
