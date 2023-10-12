@@ -26,8 +26,10 @@
       </div>
     <% end %>
 
-    <%= link_to "Create New Post", new_user_post_path(current_user), class: 'button' %>
-    
+    <% if user_signed_in? %>
+      <%= link_to "Create New Post", new_user_post_path(current_user), class: 'button' %>
+    <% end %>
+
     <div class="see-all">
   <%= link_to 'See all posts', user_posts_path(@user), class: 'button' %>
 </div>

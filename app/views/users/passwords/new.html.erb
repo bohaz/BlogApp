@@ -1,0 +1,15 @@
+<h2 class="forgot-title">Forgot your password?</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'forgot-password-form' }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send instructions", class: 'reset-btn' %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
