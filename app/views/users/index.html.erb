@@ -9,5 +9,6 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<div class="signout-button-container">
+<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signout-button" %>
+</div>

@@ -25,4 +25,11 @@
   <div class="pagination">
     <button>Previous</button>
   </div>
+
 </div>
+
+<script>
+  document.querySelector(".pagination button").addEventListener("click", function() {
+    window.history.back(); // Esto lleva al usuario a la página anterior en el historial del navegador.
+  });
+</script>
