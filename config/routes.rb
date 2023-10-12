@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+
   root 'users#index'
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create] do
-      resources :comments, only: [:create]
+    resources :posts, only: [:index, :show, :new, :create, :destroy] do
+      resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create]
     end
   end

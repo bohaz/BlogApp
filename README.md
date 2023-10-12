@@ -47,12 +47,6 @@ This application is a simple yet functional blog platform built with Ruby on Rai
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- This demo link is comming soon...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -100,6 +94,13 @@ rspec spec
 - GitHub: [@bohaz](https://github.com/bohaz)
 - Twitter: [@Ricardo29115571](https://twitter.com/Ricardo29115571)
 - LinkedIn: [Ricardo Martinez](https://www.linkedin.com/in/ricardomart%C3%ADnez%E2%88%B4/)
+
+👤 **Agyare Kissi Kenneth**
+
+- GitHub: [@githubhandle](https://github.com/over-geek)
+- Twitter: [@twitterhandle](https://twitter.com/KissiKenneth)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kenneth-agyare-kissi-673a01186/)
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
