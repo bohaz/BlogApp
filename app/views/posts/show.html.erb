@@ -15,7 +15,7 @@
   <div class="post-content">
     <p><%= @post.text %></p>
     <% if can? :destroy, @post %>
-    <%= button_to 'Delete', "/users/#{@user.id}/posts/#{@post.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= button_to 'Delete', "/users/#{@user.id}/posts/#{@post.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'del-button' %>
     <% end %>
   </div>
   <div class="comments-list">
@@ -23,8 +23,8 @@
       <div class="comment">
         <strong><%= comment.author.name %>:</strong> <%= comment.text %>
         <% if can? :destroy, comment %>
-        <%= button_to 'Delete Comment', "/users/#{@user.id}/posts/#{comment.post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+        <%= button_to 'Delete Comment', "/users/#{@user.id}/posts/#{comment.post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'del-button' %>
+        <% end %>
       </div>
     <% end %>
   </div>
