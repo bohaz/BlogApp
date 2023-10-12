@@ -1,5 +1,4 @@
 <div class="single-post">
-
   <div class="post-header">
     <h1>Post #<%= @post.id %> by <%= link_to @post.author.name, user_path(@post.author) %></h1>
     <div class="post-stats">
@@ -13,34 +12,31 @@
       </div>
     </div>
   </div>
-
   <div class="post-content">
     <p><%= @post.text %></p>
+    <% if can? :destroy, @post %>
+    <%= button_to 'Delete', "/users/#{@user.id}/posts/#{@post.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
-
   <div class="comments-list">
     <% @post.comments.each do |comment| %>
       <div class="comment">
         <strong><%= comment.author.name %>:</strong> <%= comment.text %>
+        <% if can? :destroy, comment %>
+        <%= button_to 'Delete Comment', "/users/#{@user.id}/posts/#{comment.post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
       </div>
     <% end %>
   </div>
-
   <!-- New comment -->
-
   <h2 class="form-title">Add Comment:</h2>
-
 <%= form_with(model: [ @post, @post.comments.build ], url: user_post_comments_path(@post.author, @post), local: true, html: { class: 'add-comment-form' }) do |form| %>
   <%= form.hidden_field :author_id, value: current_user.id %>
-
   <div class="field">
     <%= form.text_area :text, placeholder: "Comment", rows: 5 %>
   </div>
-
   <div class="actions">
     <%= form.submit "Add Comment", class: 'submit-btn' %>
   </div>
 <% end %>
-
-
 </div>
