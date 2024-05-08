@@ -1,14 +1,24 @@
-<% @users.each do |user| %>
-  <div class="flex flex-column m-4 ">
-    <div class="flex flex-row space-x-4">
-    <img src="<%= user.photo %>" alt="User photo">
-    <h2><%= link_to user.name, user_path(user) %></h2>
-    <div class="number-posts">
-    <p>Number of posts: <%= user.posts.count %></p>
-    </div>
-    </div>
+<%= render partial: 'users/shared/header' %>
+<div class="flex flex-col p-4 bg-slate-400">
+
+    <% @users.each do |user| %>
+      <div class="bg-white p-4 m-2 rounded-lg flex flex-row justify-between items-center">
+        <div class="">
+          <% if user.photo.present? %>
+            <%= image_tag(user.photo, alt: 'User photo', width: 60, height: 60) %>
+          <% else %>
+            <%= image_tag(ActionController::Base.helpers.asset_path('avatars/13.png'), alt: 'Default photo', width: 60, height: 60) %>
+          <% end %>
+
+          <h2 class="font-bold"><%= link_to user.name, user_path(user) %></h2>
+        </div>
+        <p>Posts: <%= user.posts.count %></p>
+      </div>
+    <% end %>
+  
+
+  <div>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signout-button" %>
   </div>
-<% end %>
-<div class="signout-button-container">
-<%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signout-button" %>
+  
 </div>
