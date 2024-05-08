@@ -1,38 +1,40 @@
 <%= render partial: 'users/shared/header' %>
-<div class="flex flex-col p-4 pt-32 bg-slate-400 y-full">
+<div class="flex flex-col  p-4 pt-32 bg-slate-400 min-h-screen">
 
-  <div class="flex flex-col justify-center ">
+  <div class="flex flex-col m-auto items-center">
       <img src="<%= @user.photo %>" alt="User photo" class="w-32">
     
       <h2 class="font-bold"><%= @user.name %></h2>
     
-      <p>Number of posts: <%= @user.posts.count %></p>
+      <p>Posts: <%= @user.posts.count %></p>
 
       <p><%= @user.bio %></p>
 
   </div>
 
-      
-  <div>
-      <% @user.recent_posts.each do |post| %>
- 
-      <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+  <% @user.recent_posts.each do |post| %>
+    <div class="bg-white p-4 m-2 rounded-lg shadow-lg shadow-indigo-500/40">
+      <h3 class="font-bold"><%= link_to post.title, user_post_path(@user, post) %></h3>
 
       <p><%= post.text.truncate(100) %>... <a href="<%= user_post_path(@user, post) %>">Read more</a></p>
         
       <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
-      
-      <% end %>
-  </div>
 
-    <% if user_signed_in? %>
-      <%= link_to "Create New Post", new_user_post_path(current_user), class: 'button' %>
-    <% end %>
+    </div>
 
-    
+  <% end %>  
+  
+  <div class="flex flex-row justify-around w-full">
+
     <%= link_to 'See all posts', user_posts_path(@user), class: 'button' %>
 
+    <% if user_signed_in? %>
+      <%= link_to "Create A New Post", new_user_post_path(current_user), class: 'button' %>
+    <% end %>
 
-    <%= link_to "Back", users_path, class: 'button' %>
+  </div>
+    <%= link_to users_path, class: 'm-auto' do %>
+      <%= image_tag("icons/back", alt: "Menu icon", width: 35, height: 35) %>
+    <% end %>
   
 </div>
