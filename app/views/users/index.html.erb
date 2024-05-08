@@ -1,6 +1,6 @@
 <% @users.each do |user| %>
-  <div class="user-container">
-    <div class="user-content">
+  <div class="flex flex-column m-4 ">
+    <div class="flex flex-row space-x-4">
     <img src="<%= user.photo %>" alt="User photo">
     <h2><%= link_to user.name, user_path(user) %></h2>
     <div class="number-posts">

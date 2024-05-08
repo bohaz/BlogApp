@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
   margin: 0;
@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  width: 100%;
   padding: 5%;
 }
 
@@ -50,7 +50,7 @@ p {
   text-align: end;
 }
 
-/* User-container */
+/* User-container 
 .user-container {
   padding: 1%;
 }
@@ -61,7 +61,7 @@ p {
   padding: 1%;
 }
 
-/* Single-post container */
+/* Single-post container 
 .single-post {
   padding: 2%;
 }
@@ -72,7 +72,7 @@ p {
   padding: 1%;
 }
 
-/* User posts container */
+/* User posts container 
 .user-posts {
   padding: 2%;
 }
@@ -88,7 +88,7 @@ p {
   text-align: center;
 }
 
-/* User profile container */
+/* User profile container 
 .user-profile {
   padding: 2%;
 }
@@ -137,7 +137,7 @@ p {
   text-align: end;
 }
 
-/* Form styles */
+/* Form styles 
 
 form {
   max-width: 600px;
@@ -196,7 +196,7 @@ form div {
   margin-bottom: 1em;
 }
 
-/* Login form */
+/* Login form 
 .login-title,
 .signup-title,
 .forgot-title,
@@ -215,8 +215,10 @@ form div {
   margin: auto;
   padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-top: 5%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .field {
@@ -238,7 +240,7 @@ form div {
   width: 100%;
 }
 
-/* shared links */
+/* shared links 
 .centered-links {
   text-align: center;
   padding: 20px;
@@ -249,3 +251,4 @@ form div {
   display: block;
   margin: 5px 0;
 }
+ */
