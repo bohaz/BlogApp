@@ -12,7 +12,7 @@ class User < ApplicationRecord
   after_initialize :set_default_photo
 
   def set_default_photo
-    self.photo ||= ActionController::Base.helpers.asset_path('avatars/13.png')
+    self.photo ||= ActionController::Base.helpers.asset_path('avatars/13.png') if self.photo.blank?
   end
 
   def recent_posts
