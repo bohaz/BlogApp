@@ -1,15 +1,15 @@
-<h2 class="form-title">Create a New Post</h2>
+<%= render partial: 'users/shared/header' %>
+<div class="flex flex-col  p-4 pt-32 bg-slate-400 min-h-screen">
+  <h2 class="form-title">Create a New Post</h2>
 
-<%= form_with(model: [@user, @post], local: true, html: { class: 'create-post-form' }) do |form| %>
-  <div class="field">
-    <%= form.text_field :title, placeholder: "Title" %>
-  </div>
-
-  <div class="field">
-    <%= form.text_area :text, placeholder: "Text", rows: 5 %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create Post", class: 'submit-btn' %>
-  </div>
-<% end %>
+  <%= form_with(model: [@user, @post], local: true, html: { class: 'create-post-form' }) do |form| %>
+    
+      <%= form.text_field :title, placeholder: "Title" %>
+    
+      <%= form.text_area :text, placeholder: "Text", rows: 5 %>
+    
+      <%= form.submit "Create Post", class: 'submit-btn' %>
+    
+  <% end %>
+  <%= render partial: 'users/shared/footer' %>
+</div>
