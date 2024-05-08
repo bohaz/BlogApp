@@ -1,44 +1,38 @@
-<div class="user-profile">
+<%= render partial: 'users/shared/header' %>
+<div class="flex flex-col p-4 pt-32 bg-slate-400 y-full">
 
-  <div class="user-info">
-    <div class="user-photo">
-      <img src="<%= @user.photo %>" alt="User photo">
-    </div>
-    <h1><%= @user.name %></h1>
-    <div class="number-posts">
-    <p>Number of posts: <%= @user.posts.count %></p>
-    </div>
+  <div class="flex flex-col justify-center ">
+      <img src="<%= @user.photo %>" alt="User photo" class="w-32">
+    
+      <h2 class="font-bold"><%= @user.name %></h2>
+    
+      <p>Number of posts: <%= @user.posts.count %></p>
+
+      <p><%= @user.bio %></p>
+
   </div>
 
-  <div class="user-bio">
-    <p><%= @user.bio %></p>
-  </div>
-
-  <div class="recent-posts">
-    <% @user.recent_posts.each do |post| %>
-     
-      <div class="post">
       
+  <div>
+      <% @user.recent_posts.each do |post| %>
+ 
       <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
-      
 
-        <p><%= post.text.truncate(100) %>... <a href="<%= user_post_path(@user, post) %>">Read more</a></p>
-        <div class="user-comment-like">
-        <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
-        </div>
-      </div>
-    <% end %>
+      <p><%= post.text.truncate(100) %>... <a href="<%= user_post_path(@user, post) %>">Read more</a></p>
+        
+      <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+      
+      <% end %>
+  </div>
 
     <% if user_signed_in? %>
       <%= link_to "Create New Post", new_user_post_path(current_user), class: 'button' %>
     <% end %>
 
-    <div class="see-all">
-  <%= link_to 'See all posts', user_posts_path(@user), class: 'button' %>
-</div>
+    
+    <%= link_to 'See all posts', user_posts_path(@user), class: 'button' %>
 
-<%= link_to "Back", users_path, class: 'button' %>
+
+    <%= link_to "Back", users_path, class: 'button' %>
   
-
-  </div>
 </div>
