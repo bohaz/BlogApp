@@ -9,6 +9,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
+  after_initialize :set_default_photo
+
+  def set_default_photo
+    self.photo ||= ActionController::Base.helpers.asset_path('avatars/13.png')
+  end
 
   def recent_posts
     posts.order(created_at: :desc).limit(3)
