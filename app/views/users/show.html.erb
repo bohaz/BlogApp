@@ -28,7 +28,7 @@
 
     <%= link_to 'See all posts', user_posts_path(@user), class: 'button' %>
 
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user == @user %>
       <%= link_to "Create A New Post", new_user_post_path(current_user), class: 'button' %>
     <% end %>
 
