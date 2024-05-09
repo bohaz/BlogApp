@@ -1,5 +1,5 @@
 <%= render partial: 'users/shared/header' %>
-<div class="flex flex-col p-4 pt-32 bg-slate-400">
+<div class="flex flex-col p-4 pt-32 bg-slate-400 min-h-screen">
 
     <% @users.each do |user| %>
       <div class="bg-white p-4 m-2 rounded-lg flex flex-row justify-between items-center shadow-lg shadow-indigo-500/40">
@@ -19,9 +19,5 @@
       </div>
     <% end %>
   
-
-  <div class="">
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signout-button" %>
-  </div>
   <%= render partial: 'users/shared/footer' %>
 </div>
