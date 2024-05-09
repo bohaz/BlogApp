@@ -3,11 +3,16 @@ class LikesController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @like = @post.likes.build(author: current_user)
-    if @like.save
-      redirect_to user_post_path(@post.author, @post), notice: 'You liked the post!'
+    @like = @post.likes.find_or_initialize_by(author: current_user)
+    
+    if @like.persisted? 
+      @like.destroy
+      notice_message = 'You disliked the post!'
     else
-      redirect_to user_post_path(@post.author, @post), alert: 'Error liking the post.'
+      @like.save
+      notice_message = 'You liked the post!'
     end
+
+    redirect_to user_post_path(@post.author, @post), notice: notice_message
   end
 end
