@@ -12,6 +12,9 @@
       <% end %>
       
     </div>
+
+    <p><%= @post.text %></p>
+
     <div class="flex items-center gap-2">
       <%= image_tag("icons/comment", alt: "comment icon", width: 30, height: 30) %>
       <span class="ml-1"><%= @post.comments.count %></span>
@@ -20,14 +23,16 @@
       <span class="ml-1"><%= @post.likes.count %></span>
     </div>
 
-    <p><%= @post.text %></p>
+   
 
     <% @post.comments.each do |comment| %>
-      
-      <strong><%= comment.author.name %>:</strong> <%= comment.text %>
-      <% if can? :destroy, comment %>
-      <%= button_to 'Delete Comment', "/users/#{@user.id}/posts/#{comment.post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'del-button' %>
-      <% end %>
+
+      <div class="rounded-lg bg-slate-200 border-none p-2 flex flex-col m-2">
+        <strong><%= comment.author.name %>:</strong> <%= comment.text %>
+        <% if can? :destroy, comment %>
+        <%= button_to 'Delete Comment', "/users/#{@user.id}/posts/#{comment.post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'del-button' %>
+        <% end %>
+      </div>
     
     <% end %>
 
