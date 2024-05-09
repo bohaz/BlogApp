@@ -12,11 +12,14 @@
       <% end %>
       
     </div>
-
-    <div class="flex flex-row gap-2 justify-end">
-      <span>Comments: <%= @post.comments.count %></span>
-      <span>Likes: <%= @post.likes.count %></span>
+    <div class="flex items-center gap-2">
+      <%= image_tag("icons/comment", alt: "comment icon", width: 30, height: 30) %>
+      <span class="ml-1"><%= @post.comments.count %></span>
+      
+      <%= image_tag("icons/like", alt: "like icon", width: 30, height: 30) %>
+      <span class="ml-1"><%= @post.likes.count %></span>
     </div>
+
     <p><%= @post.text %></p>
   </div>    
       
@@ -49,6 +52,8 @@
     <%= form.submit "Add Comment", class: 'submit-btn' %>
   
 <% end %>
-
+<%= link_to user_path(current_user), class: 'm-auto mt-4' do %>
+  <%= image_tag("icons/back", alt: "Back icon", width: 35, height: 35) %>
+<% end %>
 <%= render partial: 'users/shared/footer' %>
 </div>
