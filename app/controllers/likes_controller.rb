@@ -4,8 +4,8 @@ class LikesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @like = @post.likes.find_or_initialize_by(author: current_user)
-    
-    if @like.persisted? 
+
+    if @like.persisted?
       @like.destroy
       notice_message = 'You disliked the post!'
     else
