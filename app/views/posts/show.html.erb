@@ -21,37 +21,27 @@
     </div>
 
     <p><%= @post.text %></p>
-  </div>    
-      
-     
-  
-    
-    <% if can? :destroy, @post %>
-    <%= button_to 'Delete', "/users/#{@user.id}/posts/#{@post.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'del-button' %>
-    <% end %>
-  
-  
+
     <% @post.comments.each do |comment| %>
       
-        <strong><%= comment.author.name %>:</strong> <%= comment.text %>
-        <% if can? :destroy, comment %>
-        <%= button_to 'Delete Comment', "/users/#{@user.id}/posts/#{comment.post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'del-button' %>
-        <% end %>
+      <strong><%= comment.author.name %>:</strong> <%= comment.text %>
+      <% if can? :destroy, comment %>
+      <%= button_to 'Delete Comment', "/users/#{@user.id}/posts/#{comment.post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'del-button' %>
+      <% end %>
+    
+    <% end %>
+
+    <%= form_with(model: [ @post, @post.comments.build ], url: user_post_comments_path(@post.author, @post), local: true, html: { class: 'm-4 flex flex-col gap-2' }) do |form| %>
+      <%= form.hidden_field :author_id, value: current_user.id %>
+      <%= form.text_area :text, placeholder: "Leave a comment...", rows: 5, class: 'rounded-lg bg-slate-200 border-none' %>
+      <%= form.submit "Add Comment", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
+    <% end %>
+  </div>    
       
+    <% if can? :destroy, @post %>
+    <%= button_to 'Delete Post', "/users/#{@user.id}/posts/#{@post.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'bg-slate-200 hover:bg-slate-300 text-black p-2 rounded-lg font-bold m-2' %>
     <% end %>
   
-
-  <!-- New comment -->
-  <h2 class="form-title">Add Comment:</h2>
-<%= form_with(model: [ @post, @post.comments.build ], url: user_post_comments_path(@post.author, @post), local: true, html: { class: 'add-comment-form' }) do |form| %>
-  <%= form.hidden_field :author_id, value: current_user.id %>
-  
-    <%= form.text_area :text, placeholder: "Comment", rows: 5 %>
-  
-  
-    <%= form.submit "Add Comment", class: 'submit-btn' %>
-  
-<% end %>
 <%= link_to user_path(current_user), class: 'm-auto mt-4' do %>
   <%= image_tag("icons/back", alt: "Back icon", width: 35, height: 35) %>
 <% end %>
