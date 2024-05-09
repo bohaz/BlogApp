@@ -1,35 +1,30 @@
-<div class="user-posts">
+<%= render partial: 'users/shared/header' %>
+<div class="flex flex-col  p-4 pt-32 bg-slate-400 min-h-screen">
 
-  <div class="user-header">
-    <img src="<%= @user.photo %>" alt="User photo">
-    <h1><%= @user.name %></h1>
-    <div class="number-posts">
-    <p>Number of posts: <%= @user.posts.count %></p>
-    </div>
+  <div class="flex flex-col m-auto items-center">
+    <img src="<%= @user.photo %>" alt="User photo", class="w-32">
+    <h2 class="font-bold"><%= @user.name %></h2>
+    <p>Posts: <%= @user.posts.count %></p>
   </div>
+ 
 
   <% @posts.each do |post| %>
-    <div class="post">
-
-      <h2><%= link_to post.title, user_post_path(@user, post) %></h2>
-
+    <div class="bg-white p-4 m-2 rounded-lg shadow-lg shadow-indigo-500/40">
+      <h2 class="font-bold"><%= link_to post.title, user_post_path(@user, post) %></h2>
       <p><%= post.text %></p>
-
-      <div class="post-stats">
-        <span>Comments: <%= post.comments.count %></span>
-        <span>Likes: <%= post.likes.count %></span>
+      <div class="flex items-center gap-2">
+        <%= image_tag("icons/comment", alt: "comment icon", width: 30, height: 30) %>
+        <span class="ml-1"><%= post.comments.count %></span>
+      
+        <%= image_tag("icons/like", alt: "like icon", width: 30, height: 30) %>
+        <span class="ml-1"><%= post.likes.count %></span>
       </div>
     </div>
   <% end %>
 
-  <div class="pagination">
-    <button>Previous</button>
-  </div>
+  <%= link_to user_path(current_user), class: 'm-auto mt-4' do %>
+    <%= image_tag("icons/back", alt: "Back icon", width: 35, height: 35) %>
+  <% end %>
+  <%= render partial: 'users/shared/footer' %>
 
 </div>
-
-<script>
-  document.querySelector(".pagination button").addEventListener("click", function() {
-    window.history.back(); // Esto lleva al usuario a la página anterior en el historial del navegador.
-  });
-</script>

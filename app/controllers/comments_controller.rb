@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_post_path(@post.author, @post), notice: 'Comment was successfully added.'
     else
-      flash[:alert] = @comment.errors.full_messages.to_sentence
+      flash[:alert] = 'Comment cannot be blank.'
       redirect_to user_post_path(@post.author, @post)
     end
   end

@@ -1,19 +1,24 @@
-<h2 class="login-title">Log in</h2>
+<div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
+  <div class="flex flex-col items-center">
+    <%= image_tag "avatars/17.png", alt: "App logo", width: 150, height: 150, class: 'brightness-125' %>
+    <h1 class="font-bold text-3xl mt-4">Bloguers</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form' }) do |f| %>
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+  <div class="bg-white p-4 rounded-lg flex flex-col shadow-lg shadow-indigo-500/40 max-w-lg m-auto mt-3">
+
+    <div >
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'm-4 flex flex-col gap-2' }) do |f| %>
+        
+          <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'border-indigo-500/100 w-full rounded-lg' %>
+
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: 'border-slate-400 w-full rounded-lg' %>
+      
+          <%= f.submit "Log in", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
+        
+      <% end %>
+    </div>
+    <%= render "users/shared/links" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Log in", class: 'login-btn' %>
-  </div>
-<% end %>
-
-<div class="centered-links">
-  <%= render "users/shared/links" %>
 </div>
