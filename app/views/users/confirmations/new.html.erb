@@ -9,7 +9,7 @@
     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'm-4 flex flex-col gap-2' }) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
 
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'border-indigo-500/100 w-full rounded-lg' %>
 
         <%= f.submit "Resend instructions", class: 'resend-btn' %>
 
