@@ -1,7 +1,15 @@
 <div class="flex flex-row items-center p-2 justify-between w-full fixed bg-white" data-controller="menu">
-  <div class="flex flex-row items-center">
-    <%= image_tag "avatars/17.png", alt: "App logo", width: 100, height: 100 %>
-    <h1 class="font-bold text-xl ml-7">Bloguers</h1>
+  <div class="flex flex-row justify-between items-center w-full">
+    <div class="flex flex-row items-center">
+      <%= image_tag "avatars/17.png", alt: "App logo", width: 100, height: 100 %>
+      <h1 class="font-bold text-xl ml-7">Bloguers</h1>
+    </div>
+    <div class="hidden lg:block flex justify-self-end">
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <h2 class="font-bold text-xl">Sign Out</h2>
+      <%= image_tag "icons/out", alt: "Login Out", width: 60, height: 60 %>
+      <% end %>
+    </div>
   </div>
 
   <div>
@@ -13,7 +21,7 @@
     <div class="m-auto">
       <%= link_to destroy_user_session_path, method: :delete do %>
         <h2 class="font-bold text-xl">Sign Out</h2>
-        <%= image_tag "icons/out", alt: "Login Out", width: 60, height: 60 %>
+        <%= image_tag "icons/out", alt: "Login Out", width: 40, height: 40 %>
       <% end %>
     </div>
 
