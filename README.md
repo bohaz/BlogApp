@@ -35,6 +35,18 @@ This application is a simple yet functional blog platform built with Ruby on Rai
     <li><a href="https://rubyonrails.org/">Ruby</a></li>
   </ul>
 </details>
+<details>
+<summary>Stimulus Js</summary>
+  <ul>
+    <li><a href="https://stimulus.hotwired.dev/">Stimulus Js</a></li>
+  </ul>
+</details>
+<details>
+<summary>Tailwind-CSS</summary>
+  <ul>
+    <li><a href="https://tailwindcss.com/">Tailwind-CSS</a></li>
+  </ul>
+</details>
 
 
 ### Key Features <a name="key-features"></a>
@@ -71,7 +83,7 @@ bundle install
 ### Usage
 Initialize it with
 ```
-rails server
+bin/dev 
 ```
 Then open `http://localhost:3000` in your browser.
 
