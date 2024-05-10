@@ -1,29 +1,32 @@
 <div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
 
   <div class="flex flex-col items-center">
-  
+
     <%= image_tag "avatars/17.png", alt: "App logo", width: 150, height: 150, class: 'brightness-125' %>
     <h1 class="font-bold text-3xl mt-4">Bloguers</h1>
 
   </div>
-  <h2>Change your password</h2>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
-    <%= f.hidden_field :reset_password_token %>
- 
-      <%= f.label :password, "New password" %><br />
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-      <% end %>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  <div class="bg-white p-4 rounded-lg flex flex-col shadow-lg shadow-indigo-500/40 max-w-lg m-auto mt-3">
+    <h2>Change your password</h2>
 
-      <%= f.label :password_confirmation, "Confirm new password" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+  
+        <%= f.label :password, "New password" %><br />
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
 
-      <%= f.submit "Change my password" %>
-    
-  <% end %>
+        <%= f.label :password_confirmation, "Confirm new password" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
 
-  <%= render "users/shared/links" %>
+        <%= f.submit "Change my password" %>
+      
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
 </div>
