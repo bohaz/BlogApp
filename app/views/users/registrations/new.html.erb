@@ -13,9 +13,9 @@
      
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'border-indigo-500/100 w-full rounded-lg' %>
     
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: 'border-indigo-500/100 w-full rounded-lg' %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: 'border-indigo-500/100 w-full rounded-lg text-center' %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <span class="text-center block">(Minimum <%= @minimum_password_length %> characters)</span>
         <% end %>
 
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: 'border-indigo-500/100 w-full rounded-lg' %>
