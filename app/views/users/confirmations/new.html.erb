@@ -11,7 +11,7 @@
 
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'border-indigo-500/100 w-full rounded-lg' %>
 
-        <%= f.submit "Resend instructions", class: 'resend-btn' %>
+        <%= f.submit "Resend instructions", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
 
     <% end %>
 
