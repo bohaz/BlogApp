@@ -1,30 +1,29 @@
-<h2 class="signup-title">Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'signup-form' }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name" %>
+<div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
+  <div class="flex flex-col items-center">
+    <%= image_tag "avatars/17.png", alt: "App logo", width: 150, height: 150, class: 'brightness-125' %>
+    <h1 class="font-bold text-3xl mt-4">Bloguers</h1>
   </div>
 
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
-  </div>
+  <div class="bg-white p-4 rounded-lg flex flex-col shadow-lg shadow-indigo-500/40 max-w-lg m-auto mt-3">
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'm-4 flex flex-col gap-2' }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: 'border-indigo-500/100 w-full rounded-lg' %>
+     
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'border-indigo-500/100 w-full rounded-lg' %>
+    
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: 'border-indigo-500/100 w-full rounded-lg' %>
+        <% if @minimum_password_length %>
+        <span class="text-center block">(Minimum <%= @minimum_password_length %> characters)</span>
+        <% end %>
+
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: 'border-indigo-500/100 w-full rounded-lg' %>
+
+        <%= f.submit "Sign up", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
+      
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up", class: 'signup-btn' %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

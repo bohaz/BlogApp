@@ -1,15 +1,23 @@
-<h2 class="forgot-title">Forgot your password?</h2>
+<div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'forgot-password-form' }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+  <div class="flex flex-col items-center">
+    <%= image_tag "avatars/17.png", alt: "App logo", width: 150, height: 150, class: 'brightness-125' %>
+    <h1 class="font-bold text-3xl mt-4">Bloguers</h1>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send instructions", class: 'reset-btn' %>
-  </div>
-<% end %>
+  <div class="bg-white p-4 rounded-lg flex flex-col shadow-lg shadow-indigo-500/40 max-w-lg m-auto mt-3">
 
-<%= render "users/shared/links" %>
+    <h2 class="font-bold ml-4">Forgot your password?</h2>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'm-4 flex flex-col gap-2' }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+    
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'border-slate-400 w-full rounded-lg' %>
+ 
+        <%= f.submit "Send instructions", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
+    
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div>

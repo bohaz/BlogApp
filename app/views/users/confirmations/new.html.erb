@@ -1,15 +1,20 @@
-<h2 class="resend-title">Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'resend-confirmation-form' }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+<div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
+  <div class="flex flex-col items-center">
+    <%= image_tag "avatars/17.png", alt: "App logo", width: 150, height: 150, class: 'brightness-125' %>
+    <h1 class="font-bold text-3xl mt-4">Bloguers</h1>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend instructions", class: 'resend-btn' %>
-  </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+  <div class="bg-white p-4 rounded-lg flex flex-col shadow-lg shadow-indigo-500/40 max-w-lg m-auto mt-3">
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'm-4 flex flex-col gap-2' }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'border-indigo-500/100 w-full rounded-lg' %>
+
+        <%= f.submit "Resend instructions", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
+
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>  
+</div>
