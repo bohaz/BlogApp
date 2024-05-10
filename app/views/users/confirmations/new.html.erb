@@ -1,12 +1,14 @@
-<h2 class="resend-title">Resend confirmation instructions</h2>
+<div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
+  <h2 class="resend-title">Resend confirmation instructions</h2>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'resend-confirmation-form' }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'resend-confirmation-form' }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
 
-    <%= f.submit "Resend instructions", class: 'resend-btn' %>
+      <%= f.submit "Resend instructions", class: 'resend-btn' %>
 
-<% end %>
+  <% end %>
 
-<%= render "users/shared/links" %>
+  <%= render "users/shared/links" %>
+</div>
