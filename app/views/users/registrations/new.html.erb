@@ -9,11 +9,11 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'm-4 flex flex-col gap-2' }) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
 
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", class: 'border-indigo-500/100 w-full rounded-lg' %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: 'border-indigo-500/100 w-full rounded-lg' %>
      
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'border-indigo-500/100 w-full rounded-lg' %>
     
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: 'border-indigo-500/100 w-full rounded-lg text-center' %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: 'border-indigo-500/100 w-full rounded-lg' %>
         <% if @minimum_password_length %>
         <span class="text-center block">(Minimum <%= @minimum_password_length %> characters)</span>
         <% end %>
