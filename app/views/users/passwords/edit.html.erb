@@ -1,4 +1,11 @@
 <div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
+
+  <div class="flex flex-col items-center">
+  
+    <%= image_tag "avatars/17.png", alt: "App logo", width: 150, height: 150, class: 'brightness-125' %>
+    <h1 class="font-bold text-3xl mt-4">Bloguers</h1>
+
+  </div>
   <h2>Change your password</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
