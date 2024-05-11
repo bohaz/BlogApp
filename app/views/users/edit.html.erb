@@ -1,0 +1,40 @@
+<%= render partial: 'users/shared/header' %>
+<div class="flex flex-col p-4 pt-32 bg-slate-400 min-h-screen">
+  <div class="bg-white p-4 mt-8 rounded-lg flex flex-col shadow-lg shadow-indigo-500/40 max-w-lg m-auto mt-3">
+    <div class="flex items-center justify-around w-full">
+      <h2 class="font-bold">Edit Your Profile</h2>
+      <span class="font-bold">|</span>
+      <% if user_signed_in? && current_user == @user %>
+      <%= button_to "Delete My Account", @user, method: :delete, data: { confirm: "Are you sure?" }, class: 'font-bold' %>
+      <% end %>
+    </div>
+
+    <%= form_with(model: @user, url: user_path(@user), method: :patch, class: 'm-4 flex flex-col gap-2' ) do |form| %>
+      <div class="mb-4">
+        <%= form.label :name, class: 'block text-gray-700 font-bold mb-2' %>
+        <%= form.text_field :name, class: 'border-indigo-500/100 w-full rounded-lg' %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :bio, class: 'block text-gray-700 font-bold mb-2' %>
+        <%= form.text_area :bio, class: 'border-indigo-500/100 w-full rounded-lg' %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :photo, class: 'block text-gray-700 font-bold mb-2' %>
+        <%= form.file_field :photo, class: 'form-input border-indigo-500/100 w-full rounded-lg' %>
+      </div>
+
+      <div class="flex items-center justify-around">
+        <%= form.submit "Update", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold'%>
+        <%= link_to "Cancel", user_path(@user), class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
+      </div>
+    <% end %>
+
+  </div> 
+  <%= link_to user_path(current_user), class: 'm-auto mt-4' do %>
+    <%= image_tag("icons/back", alt: "Back icon", width: 35, height: 35) %>
+  <% end %>
+
+</div>
+<%= render partial: 'users/shared/footer' %>
