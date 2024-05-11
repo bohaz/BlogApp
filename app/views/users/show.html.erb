@@ -36,6 +36,11 @@
 
   </div>
 
+  <% if user_signed_in? && current_user == @user %>
+  <%= button_to "Delete User", @user, method: :delete, data: { confirm: "Are you sure?" }, class: "button" %>
+  <% end %>
+
+
     <%= link_to users_path, class: 'm-auto mt-4' do %>
       <%= image_tag("icons/back", alt: "Back icon", width: 35, height: 35) %>
     <% end %>
