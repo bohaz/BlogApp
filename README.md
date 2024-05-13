@@ -24,6 +24,8 @@
 
 This application is a simple yet functional blog platform built with Ruby on Rails, utilizing PostgreSQL as the database. Users can create posts, comment on existing posts, and like posts. Every interaction is tied to a specific user and post, fostering a community environment and allowing for interaction between users.
 
+![Bloguers](https://github.com/bohaz/BlogApp/assets/127757182/08895f41-9f80-491d-a295-a28511ecc795)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
