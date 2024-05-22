@@ -106,9 +106,9 @@ rspec spec
 👤 **Ricardo Martínez**
 
 - GitHub: [@bohaz](https://github.com/bohaz)
-- Twitter: [@Ricardo29115571](https://twitter.com/Ricardo29115571)
 - LinkedIn: [Ricardo Martinez](https://www.linkedin.com/in/ricardomart%C3%ADnez%E2%88%B4/)
-
+- Portfolio: [Ricardo's Portfolio](https://ricardosportfolio.vercel.app/)
+- 
 👤 **Agyare Kissi Kenneth**
 
 - GitHub: [@githubhandle](https://github.com/over-geek)
