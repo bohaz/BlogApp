@@ -1,20 +1,19 @@
-<div class="flex flex-col  p-4 bg-slate-400 min-h-screen">
+<div class="flex flex-col min-h-screen">
 
   <div class="flex flex-col items-center">
-    <%= image_tag "avatars/17.png", alt: "App logo", width: 150, height: 150, class: 'brightness-125' %>
-    <h1 class="font-bold text-3xl mt-4">Bloguers</h1>
+    <%= image_tag "welcome.png", alt: "App logo", class: '' %>
   </div>
 
-  <div class="bg-white p-4 rounded-lg flex flex-col shadow-lg shadow-indigo-500/40 max-w-lg m-auto mt-3">
+  <div class="bg-white p-4 rounded-3xl flex flex-col">
 
     <h2 class="font-bold ml-4">Forgot your password?</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'm-4 flex flex-col gap-2' }) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
     
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'border-slate-400 w-full rounded-lg' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'border-slate-400 w-full rounded-3xl' %>
  
-        <%= f.submit "Send instructions", class: 'bg-slate-600 hover:bg-slate-700 text-white p-2 rounded-lg font-bold' %>
+        <%= f.submit "Send instructions", class: 'bg-gradient-to-r from-indigo-500 to-indigo-300 hover:bg-slate-700 text-white p-3 rounded-3xl font-bold' %>
     
     <% end %>
 
